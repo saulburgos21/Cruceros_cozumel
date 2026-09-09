@@ -148,6 +148,7 @@ existe = any(
 
 if not existe:
     cruceros[dia].append(registro)
+    
     return cruceros
 
 
