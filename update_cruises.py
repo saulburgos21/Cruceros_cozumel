@@ -7,105 +7,122 @@ from bs4 import BeautifulSoup
 
 
 APIQROO_URL = "https://servicios.apiqroo.com.mx/programacion/?unit=m"
+CRUISE_URL = "https://www.cruisetimetables.com/cozumelmexicoschedule-sep2026.html"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0"
 }
 
 
-def limpiar_barco(nombre):
-    nombre = nombre.strip()
-    nombre = re.sub(r"^(M/S|M/V)\s+", "", nombre, flags=re.I)
-    return nombre.strip()
+def normalizar_barco(nombre):
+    nombre = nombre.upper().strip()
+    nombre = re.sub(r"^(M/S|M/V)\s+", "", nombre)
+    nombre = re.sub(r"\s+", " ", nombre)
+    return nombre
 
 
 def obtener_apiqroo():
-    respuesta = requests.get(
+
+    r = requests.get(
         APIQROO_URL,
         headers=HEADERS,
         timeout=30
     )
-    respuesta.raise_for_status()
+    r.raise_for_status()
 
-    soup = BeautifulSoup(respuesta.text, "html.parser")
+    soup = BeautifulSoup(r.text, "html.parser")
 
     cruceros = {}
+    fecha_actual = None
 
-    # Buscamos todas las tablas de la página
-    for tabla in soup.find_all("table"):
+    # APIQROO coloca la fecha en una fila y
+    # los barcos en las filas siguientes.
+    for fila in soup.find_all("tr"):
 
-        for fila in tabla.find_all("tr"):
+        texto = fila.get_text(" ", strip=True)
 
-            celdas = [
-                celda.get_text(" ", strip=True)
-                for celda in fila.find_all(["td", "th"])
-            ]
+        # Detectar encabezado de fecha
+        fecha = re.search(
+            r"(\d{1,2})/(\d{1,2})/(\d{4})",
+            texto
+        )
 
-            if len(celdas) < 3:
-                continue
+        if fecha and not re.search(r"\d{1,2}:\d{2}", texto):
 
-            texto = " | ".join(celdas)
+            dia = int(fecha.group(1))
+            mes = int(fecha.group(2))
+            año = int(fecha.group(3))
 
-            # Fecha
-            fecha = re.search(
-                r"\b(\d{1,2}/\d{1,2}/\d{4})\b",
-                texto
-            )
+            fecha_actual = f"{año:04d}-{mes:02d}-{dia:02d}"
 
-            # Horarios
-            horarios = re.findall(
-                r"\b\d{1,2}:\d{2}\b",
-                texto
-            )
+            if fecha_actual not in cruceros:
+                cruceros[fecha_actual] = []
 
-            if not fecha or len(horarios) < 2:
-                continue
+            continue
 
-            try:
-                fecha_obj = datetime.strptime(
-                    fecha.group(1),
-                    "%d/%m/%Y"
-                )
-            except ValueError:
-                continue
+        if not fecha_actual:
+            continue
 
-            terminal = None
-            barco = None
+        # Terminal
+        terminal_match = re.search(
+            r"(TERMINAL\s+[A-ZÁÉÍÓÚÑ ]+)",
+            texto,
+            re.I
+        )
 
-            for celda in celdas:
+        # Barco
+        barco_match = re.search(
+            r"(M/S\s+[A-Z0-9 .'-]+|M/V\s+[A-Z0-9 .'-]+|"
+            r"MARINER OF THE SEAS|RADIANCE OF THE SEAS|"
+            r"ENCHANTMENT OF THE SEAS|CELEBRITY BEYOND|"
+            r"ICON OF THE SEAS)",
+            texto,
+            re.I
+        )
 
-                mayusculas = celda.upper()
+        # Horarios
+        horarios = re.findall(
+            r"\b\d{1,2}:\d{2}\b",
+            texto
+        )
 
-                if "TERMINAL" in mayusculas:
-                    terminal = celda
+        if not barco_match or len(horarios) < 2:
+            continue
 
-                if "M/S" in mayusculas or "M/V" in mayusculas:
-                    barco = limpiar_barco(celda)
+        barco = normalizar_barco(barco_match.group(1))
 
-            if not barco:
-                continue
+        terminal = (
+            terminal_match.group(1).upper().strip()
+            if terminal_match
+            else "SIN TERMINAL"
+        )
 
-            dia = fecha_obj.strftime("%Y-%m-%d")
+        registro = {
+            "terminal": terminal,
+            "ship": barco,
+            "arrival": horarios[0],
+            "departure": horarios[1],
+            "passengers": 0
+        }
 
-            if dia not in cruceros:
-                cruceros[dia] = []
+        # Evitar duplicados
+        existe = any(
+            x["ship"] == registro["ship"]
+            and x["terminal"] == registro["terminal"]
+            and x["arrival"] == registro["arrival"]
+            and x["departure"] == registro["departure"]
+            for x in cruceros[fecha_actual]
+        )
 
-            registro = {
-                "terminal": terminal or "SIN TERMINAL",
-                "ship": barco,
-                "arrival": horarios[0],
-                "departure": horarios[1],
-                "passengers": 0
-            }
-
-            # Evitar duplicados exactos
-            if registro not in cruceros[dia]:
-                cruceros[dia].append(registro)
+        if not existe:
+            cruceros[fecha_actual].append(registro)
 
     return cruceros
 
 
 def obtener_pasajeros():
+
+    # Usamos el mes actual automáticamente
     ahora = datetime.now()
 
     mes = ahora.strftime("%b").lower()
@@ -116,109 +133,132 @@ def obtener_pasajeros():
         f"cozumelmexicoschedule-{mes}{año}.html"
     )
 
-    respuesta = requests.get(
+    r = requests.get(
         url,
         headers=HEADERS,
         timeout=30
     )
-    respuesta.raise_for_status()
+    r.raise_for_status()
 
-    soup = BeautifulSoup(respuesta.text, "html.parser")
-
-    texto = soup.get_text(" ", strip=True)
+    soup = BeautifulSoup(r.text, "html.parser")
 
     pasajeros = {}
 
-    # Buscamos nombres de barcos seguidos de una cantidad
-    patron = re.compile(
-        r"(Carnival|Disney|Harmony|Mariner|Icon|MSC|"
-        r"Radiance|Symphony|Enchantment|Regal|Celebrity|"
-        r"Norwegian|Margaritaville|Mardi Gras|Star)"
-        r"[^0-9]{0,100}"
-        r"(\d[\d,]{2,})",
-        re.I
-    )
+    barcos_conocidos = [
+        "Carnival Valor",
+        "Carnival Paradise",
+        "Carnival Breeze",
+        "Carnival Jubilee",
+        "Carnival Liberty",
+        "Carnival Celebration",
+        "Carnival Dream",
+        "Disney Treasure",
+        "Disney Destiny",
+        "Harmony Of The Seas",
+        "Mariner Of The Seas",
+        "Icon Of The Seas",
+        "MSC Seashore",
+        "MSC Seascape",
+        "MSC World America",
+        "Radiance Of The Seas",
+        "Symphony Of The Seas",
+        "Enchantment Of The Seas",
+        "Regal Princess",
+        "Celebrity Beyond",
+        "Celebrity Reflection",
+        "Norwegian Prima",
+        "Margaritaville At Sea Islander",
+        "Mardi Gras",
+        "Star Of The Seas"
+    ]
 
-    for coincidencia in patron.finditer(texto):
+    for enlace in soup.find_all("a"):
 
-        nombre = coincidencia.group(0)
+        nombre = enlace.get_text(" ", strip=True)
 
-        numero = coincidencia.group(2)
+        barco = None
 
-        try:
-            cantidad = int(numero.replace(",", ""))
-        except ValueError:
+        for candidato in barcos_conocidos:
+            if nombre.lower() == candidato.lower():
+                barco = candidato
+                break
+
+        if not barco:
             continue
 
-        # Buscamos el nombre del barco dentro del texto encontrado
-        nombres = [
-            "Carnival Valor",
-            "Carnival Paradise",
-            "Carnival Breeze",
-            "Carnival Jubilee",
-            "Carnival Liberty",
-            "Carnival Celebration",
-            "Disney Treasure",
-            "Disney Destiny",
-            "Harmony Of The Seas",
-            "Mariner Of The Seas",
-            "Icon Of The Seas",
-            "MSC Seashore",
-            "MSC Seascape",
-            "MSC World America",
-            "Radiance Of The Seas",
-            "Symphony Of The Seas",
-            "Enchantment Of The Seas",
-            "Regal Princess",
-            "Celebrity Beyond",
-            "Celebrity Reflection",
-            "Norwegian Prima",
-            "Margaritaville At Sea Islander",
-            "Mardi Gras",
-            "Star Of The Seas",
-            "Carnival Dream"
-        ]
+        # Subimos por el HTML hasta encontrar un bloque
+        # que contenga horarios y pasajeros.
+        contenedor = enlace
 
-        for barco in nombres:
+        for _ in range(5):
 
-            if barco.lower() in nombre.lower():
+            if not contenedor.parent:
+                break
 
-                clave = re.sub(
-                    r"[^a-z0-9]",
-                    "",
-                    barco.lower()
-                )
+            contenedor = contenedor.parent
 
-                pasajeros[clave] = cantidad
+            texto = contenedor.get_text(
+                " ",
+                strip=True
+            )
+
+            horarios = re.findall(
+                r"\b[ad]\s*(\d{4})\b",
+                texto,
+                re.I
+            )
+
+            numeros = re.findall(
+                r"\b\d{3,5}\b",
+                texto
+            )
+
+            candidatos = []
+
+            for numero in numeros:
+
+                valor = int(numero)
+
+                # Los pasajeros de cruceros normalmente
+                # están dentro de este rango.
+                if 500 <= valor <= 20000:
+                    candidatos.append(valor)
+
+            if len(horarios) >= 2 and candidatos:
+
+                clave = normalizar_barco(barco)
+
+                pasajeros[clave] = candidatos[-1]
+
+                break
 
     return pasajeros
 
 
-def clave_barco(nombre):
-    return re.sub(
-        r"[^a-z0-9]",
-        "",
-        nombre.lower()
-    )
-
-
 def main():
 
-    print("Obteniendo programación de APIQROO...")
+    print("1. Obteniendo datos de APIQROO...")
 
     cruceros = obtener_apiqroo()
 
-    print("Obteniendo pasajeros de CruiseTimetables...")
+    print(
+        "Fechas encontradas:",
+        len(cruceros)
+    )
+
+    print("2. Obteniendo pasajeros...")
 
     pasajeros = obtener_pasajeros()
 
     encontrados = 0
 
-    for dia in cruceros:
+    for fecha, lista in cruceros.items():
 
-        for crucero in cruceros[dia]:
+        for crucero in lista:
 
-            clave = clave_barco(crucero["ship"])
+            clave = normalizar_barco(
+                crucero["ship"]
+            )
 
             if clave in pasajeros:
 
@@ -247,10 +287,23 @@ def main():
             indent=2
         )
 
+    total = sum(
+        len(lista)
+        for lista in cruceros.values()
+    )
+
     print(
-        f"Actualización terminada. "
-        f"Cruceros: {sum(len(x) for x in cruceros.values())}. "
-        f"Pasajeros encontrados: {encontrados}."
+        "Actualización terminada."
+    )
+
+    print(
+        "Cruceros encontrados:",
+        total
+    )
+
+    print(
+        "Pasajeros relacionados:",
+        encontrados
     )
 
 
