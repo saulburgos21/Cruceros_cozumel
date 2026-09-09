@@ -36,14 +36,14 @@
 
     .subtitle {
       margin-top: 8px;
-      font-size: 16px;
       opacity: 0.9;
     }
 
     .week-title {
       text-align: center;
+      font-size: 21px;
+      font-weight: bold;
       margin: 20px 0;
-      font-size: 22px;
     }
 
     .days {
@@ -60,10 +60,16 @@
       text-align: center;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
 
     .day:hover {
       transform: translateY(-2px);
+    }
+
+    .day.selected {
+      background: #0b7285;
+      color: white;
     }
 
     .day-name {
@@ -72,23 +78,13 @@
     }
 
     .day-number {
-      font-size: 20px;
-      margin: 5px 0;
+      font-size: 21px;
       font-weight: bold;
+      margin: 5px 0;
     }
 
     .day-passengers {
       font-size: 11px;
-      color: #64748b;
-    }
-
-    .today {
-      background: #0b7285;
-      color: white;
-    }
-
-    .today .day-passengers {
-      color: white;
     }
 
     .summary {
@@ -138,7 +134,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 850px;
+      min-width: 900px;
     }
 
     th {
@@ -178,8 +174,11 @@
       color: #15803d;
     }
 
-    .terminal {
-      font-size: 13px;
+    .no-cruises {
+      text-align: center;
+      padding: 35px;
+      font-size: 18px;
+      color: #64748b;
     }
 
     footer {
@@ -212,9 +211,8 @@
       }
 
       .week-title {
-        font-size: 19px;
+        font-size: 18px;
       }
-
     }
   </style>
 </head>
@@ -236,53 +234,9 @@
   </div>
 
 
-  <!-- SEMANA -->
+  <!-- DÍAS -->
 
-  <div class="days">
-
-    <div class="day">
-      <div class="day-name">LUN</div>
-      <div class="day-number">7</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-    <div class="day">
-      <div class="day-name">MAR</div>
-      <div class="day-number">8</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-    <div class="day today">
-      <div class="day-name">MIÉ</div>
-      <div class="day-number">9</div>
-      <div class="day-passengers">13,796</div>
-    </div>
-
-    <div class="day">
-      <div class="day-name">JUE</div>
-      <div class="day-number">10</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-    <div class="day">
-      <div class="day-name">VIE</div>
-      <div class="day-number">11</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-    <div class="day">
-      <div class="day-name">SÁB</div>
-      <div class="day-number">12</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-    <div class="day">
-      <div class="day-name">DOM</div>
-      <div class="day-number">13</div>
-      <div class="day-passengers">Consultar</div>
-    </div>
-
-  </div>
+  <div class="days" id="days"></div>
 
 
   <!-- RESUMEN -->
@@ -294,35 +248,31 @@
         🚢 Barcos
       </div>
 
-      <div class="card-value">
-        3
+      <div class="card-value" id="shipCount">
+        0
       </div>
     </div>
 
 
     <div class="card">
-
       <div class="card-title">
         👥 Pasajeros estimados
       </div>
 
-      <div class="card-value">
-        13,796
+      <div class="card-value" id="passengerTotal">
+        0
       </div>
-
     </div>
 
 
     <div class="card">
-
       <div class="card-title">
         📅 Día seleccionado
       </div>
 
-      <div class="card-value">
-        Miércoles 9
+      <div class="card-value" id="selectedDate">
+        -
       </div>
-
     </div>
 
   </div>
@@ -330,14 +280,8 @@
 
   <!-- OPORTUNIDAD -->
 
-  <div class="opportunity">
-
+  <div class="opportunity" id="opportunity">
     🔥 OPORTUNIDAD DEL DÍA
-
-    <br>
-
-    MUY ALTA
-
   </div>
 
 
@@ -350,129 +294,17 @@
       <thead>
 
         <tr>
-
-          <th>Fecha</th>
-
           <th>Terminal</th>
-
           <th>Barco</th>
-
           <th>Arribo</th>
-
           <th>Salida</th>
-
           <th>Pasajeros</th>
-
           <th>Prioridad</th>
-
         </tr>
 
       </thead>
 
-
-      <tbody>
-
-
-        <tr>
-
-          <td>
-            09/09/2026
-          </td>
-
-          <td class="terminal">
-            Por confirmar
-          </td>
-
-          <td class="ship">
-            🛳️ Icon Of The Seas
-          </td>
-
-          <td>
-            08:00
-          </td>
-
-          <td>
-            18:00
-          </td>
-
-          <td>
-            5,610
-          </td>
-
-          <td class="priority high">
-            ⭐⭐⭐ Alta
-          </td>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            09/09/2026
-          </td>
-
-          <td class="terminal">
-            Por confirmar
-          </td>
-
-          <td class="ship">
-            🛳️ MSC Seashore
-          </td>
-
-          <td>
-            08:00
-          </td>
-
-          <td>
-            19:00
-          </td>
-
-          <td>
-            4,540
-          </td>
-
-          <td class="priority high">
-            ⭐⭐⭐ Alta
-          </td>
-
-        </tr>
-
-
-        <tr>
-
-          <td>
-            09/09/2026
-          </td>
-
-          <td class="terminal">
-            Por confirmar
-          </td>
-
-          <td class="ship">
-            🛳️ Carnival Breeze
-          </td>
-
-          <td>
-            09:00
-          </td>
-
-          <td>
-            17:00
-          </td>
-
-          <td>
-            3,646
-          </td>
-
-          <td class="priority medium">
-            ⭐⭐ Media
-          </td>
-
-        </tr>
-
-
-      </tbody>
+      <tbody id="cruiseTable"></tbody>
 
     </table>
 
@@ -480,16 +312,427 @@
 
 
   <footer>
-
     🚢 Panel de Cruceros · Cozumel Top Excursions
-
     <br>
-
-    Datos de pasajeros: estimaciones de itinerarios
-
+    Programación: APIQROO · Pasajeros estimados: CruiseTimetables
   </footer>
 
 </div>
+
+
+<script>
+
+const cruiseData = {
+
+  "2026-09-07": [
+    {
+      terminal: "Punta Langosta",
+      ship: "Disney Treasure",
+      arrival: "06:30",
+      departure: "17:00",
+      passengers: 2500
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Valor",
+      arrival: "06:30",
+      departure: "16:00",
+      passengers: 2968
+    }
+  ],
+
+
+  "2026-09-08": [
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Paradise",
+      arrival: "05:30",
+      departure: "15:00",
+      passengers: 2124
+    },
+    {
+      terminal: "SSA México",
+      ship: "Harmony Of The Seas",
+      arrival: "05:45",
+      departure: "17:00",
+      passengers: 5479
+    },
+    {
+      terminal: "Punta Langosta",
+      ship: "Mariner Of The Seas",
+      arrival: "06:15",
+      departure: "16:30",
+      passengers: 3114
+    }
+  ],
+
+
+  "2026-09-09": [
+    {
+      terminal: "SSA México",
+      ship: "Icon Of The Seas",
+      arrival: "07:00",
+      departure: "18:00",
+      passengers: 5610
+    },
+    {
+      terminal: "Punta Langosta",
+      ship: "MSC Seashore",
+      arrival: "07:30",
+      departure: "19:00",
+      passengers: 4540
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Breeze",
+      arrival: "08:30",
+      departure: "17:00",
+      passengers: 3646
+    }
+  ],
+
+
+  "2026-09-10": [
+    {
+      terminal: "Punta Langosta",
+      ship: "Radiance Of The Seas",
+      arrival: "06:15",
+      departure: "17:00",
+      passengers: 2100
+    },
+    {
+      terminal: "SSA México",
+      ship: "Symphony Of The Seas",
+      arrival: "06:15",
+      departure: "16:45",
+      passengers: 5518
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Jubilee",
+      arrival: "06:30",
+      departure: "16:00",
+      passengers: 5374
+    },
+    {
+      terminal: "Punta Langosta",
+      ship: "Enchantment Of The Seas",
+      arrival: "07:15",
+      departure: "18:00",
+      passengers: 1950
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Regal Princess",
+      arrival: "07:30",
+      departure: "18:00",
+      passengers: 3560
+    },
+    {
+      terminal: "SSA México",
+      ship: "Celebrity Beyond",
+      arrival: "10:00",
+      departure: "19:30",
+      passengers: 3260
+    }
+  ],
+
+
+  "2026-09-11": [
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Liberty",
+      arrival: "06:30",
+      departure: "16:00",
+      passengers: 2974
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Celebration",
+      arrival: "06:30",
+      departure: "16:00",
+      passengers: 5374
+    },
+    {
+      terminal: "Punta Langosta",
+      ship: "MSC Seascape",
+      arrival: "07:30",
+      departure: "16:00",
+      passengers: 5878
+    }
+  ],
+
+
+  "2026-09-12": [
+    {
+      terminal: "Punta Langosta",
+      ship: "Mariner Of The Seas",
+      arrival: "06:15",
+      departure: "16:30",
+      passengers: 3114
+    },
+    {
+      terminal: "Puerta Maya",
+      ship: "Carnival Valor",
+      arrival: "06:30",
+      departure: "16:00",
+      passengers: 2968
+    }
+  ],
+
+
+  "2026-09-13": []
+
+};
+
+
+const days = [
+  {
+    date: "2026-09-07",
+    name: "LUN",
+    number: "7"
+  },
+  {
+    date: "2026-09-08",
+    name: "MAR",
+    number: "8"
+  },
+  {
+    date: "2026-09-09",
+    name: "MIÉ",
+    number: "9"
+  },
+  {
+    date: "2026-09-10",
+    name: "JUE",
+    number: "10"
+  },
+  {
+    date: "2026-09-11",
+    name: "VIE",
+    number: "11"
+  },
+  {
+    date: "2026-09-12",
+    name: "SÁB",
+    number: "12"
+  },
+  {
+    date: "2026-09-13",
+    name: "DOM",
+    number: "13"
+  }
+];
+
+
+const daysContainer = document.getElementById("days");
+
+
+days.forEach(day => {
+
+  const data = cruiseData[day.date] || [];
+
+  const total = data.reduce(
+    (sum, ship) => sum + ship.passengers,
+    0
+  );
+
+  const button = document.createElement("div");
+
+  button.className = "day";
+
+  button.innerHTML = `
+    <div class="day-name">${day.name}</div>
+    <div class="day-number">${day.number}</div>
+    <div class="day-passengers">
+      ${total.toLocaleString("es-MX")} pasajeros
+    </div>
+  `;
+
+  button.onclick = () => {
+
+    document
+      .querySelectorAll(".day")
+      .forEach(item => item.classList.remove("selected"));
+
+    button.classList.add("selected");
+
+    showDay(day.date);
+
+  };
+
+  daysContainer.appendChild(button);
+
+});
+
+
+function showDay(date) {
+
+  const data = cruiseData[date] || [];
+
+  const dayInfo = days.find(
+    day => day.date === date
+  );
+
+  const totalPassengers = data.reduce(
+    (sum, ship) => sum + ship.passengers,
+    0
+  );
+
+
+  document.getElementById("shipCount").textContent =
+    data.length;
+
+
+  document.getElementById("passengerTotal").textContent =
+    totalPassengers.toLocaleString("es-MX");
+
+
+  document.getElementById("selectedDate").textContent =
+    `${dayInfo.name} ${dayInfo.number}`;
+
+
+  updateOpportunity(totalPassengers);
+
+
+  const table = document.getElementById("cruiseTable");
+
+  table.innerHTML = "";
+
+
+  if (data.length === 0) {
+
+    table.innerHTML = `
+      <tr>
+        <td colspan="6" class="no-cruises">
+          ⚪ No hay arribos programados
+        </td>
+      </tr>
+    `;
+
+    return;
+  }
+
+
+  data.forEach(ship => {
+
+    let priority = "";
+    let priorityClass = "";
+
+
+    if (ship.passengers >= 5000) {
+
+      priority = "⭐⭐⭐ Alta";
+      priorityClass = "high";
+
+    } else if (ship.passengers >= 3000) {
+
+      priority = "⭐⭐ Media";
+      priorityClass = "medium";
+
+    } else {
+
+      priority = "⭐ Normal";
+      priorityClass = "low";
+
+    }
+
+
+    const row = document.createElement("tr");
+
+
+    row.innerHTML = `
+
+      <td>
+        ⚓ ${ship.terminal}
+      </td>
+
+      <td class="ship">
+        🛳️ ${ship.ship}
+      </td>
+
+      <td>
+        ${ship.arrival}
+      </td>
+
+      <td>
+        ${ship.departure}
+      </td>
+
+      <td>
+        ${ship.passengers.toLocaleString("es-MX")}
+      </td>
+
+      <td class="priority ${priorityClass}">
+        ${priority}
+      </td>
+
+    `;
+
+
+    table.appendChild(row);
+
+  });
+
+}
+
+
+function updateOpportunity(total) {
+
+  const box = document.getElementById("opportunity");
+
+
+  if (total === 0) {
+
+    box.innerHTML =
+      "⚪ SIN ARRIBOS PROGRAMADOS";
+
+  }
+
+  else if (total >= 15000) {
+
+    box.innerHTML =
+      "🔥🔥 OPORTUNIDAD MUY ALTA";
+
+  }
+
+  else if (total >= 10000) {
+
+    box.innerHTML =
+      "🔥 OPORTUNIDAD ALTA";
+
+  }
+
+  else if (total >= 5000) {
+
+    box.innerHTML =
+      "🟠 OPORTUNIDAD MEDIA";
+
+  }
+
+  else {
+
+    box.innerHTML =
+      "🟢 OPORTUNIDAD NORMAL";
+
+  }
+
+}
+
+
+/* Abrir inicialmente el día 9 */
+
+const initialDay = "2026-09-09";
+
+const initialButton = [...document.querySelectorAll(".day")][2];
+
+if (initialButton) {
+  initialButton.classList.add("selected");
+}
+
+showDay(initialDay);
+
+</script>
 
 </body>
 </html>
