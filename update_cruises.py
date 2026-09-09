@@ -31,89 +31,100 @@ def obtener_apiqroo():
 
     soup = BeautifulSoup(r.text, "html.parser")
 
-    # Convertimos la página en texto, conservando cada línea
-    texto = soup.get_text("\n", strip=True)
-    lineas = [x.strip() for x in texto.splitlines() if x.strip()]
-
     cruceros = {}
 
-    for linea in lineas:
+    # Buscar todas las filas de la tabla
+    for fila in soup.find_all("tr"):
 
-        # Ejemplo:
-        # TERMINAL PUERTA MAYA | ... | M/S CARNIVAL VALOR |
-        # 7/09/2026 | 06:30 | 7/09/2026 | 16:00
+        celdas = fila.find_all(["td", "th"])
 
-        if "TERMINAL " not in linea.upper():
+        if len(celdas) < 7:
             continue
 
-        fecha = re.search(
+        datos = [
+            celda.get_text(" ", strip=True)
+            for celda in celdas
+        ]
+
+        texto = " | ".join(datos)
+
+        # Necesitamos una fecha
+        fecha_match = re.search(
             r"(\d{1,2})/(\d{1,2})/(\d{4})",
-            linea
+            texto
         )
 
-        if not fecha:
+        if not fecha_match:
             continue
 
-        horarios = re.findall(
-            r"\b\d{1,2}:\d{2}\b",
-            linea
-        )
+        # Identificar terminal
+        terminal = None
 
-        if len(horarios) < 2:
+        for nombre_terminal in [
+            "TERMINAL SSA MEXICO",
+            "TERMINAL PUERTA MAYA",
+            "TERMINAL PUNTA LANGOSTA"
+        ]:
+            if nombre_terminal in texto.upper():
+                terminal = nombre_terminal
+                break
+
+        if not terminal:
             continue
 
-        terminal_match = re.search(
-            r"(TERMINAL\s+(?:SSA\s+MEXICO|PUERTA\s+MAYA|PUNTA\s+LANGOSTA))",
-            linea,
-            re.I
-        )
-
-        if not terminal_match:
-            continue
-
-        terminal = terminal_match.group(1).upper()
-
-        # Todo lo que aparece después del texto de bandera
-        # y antes de la fecha corresponde al barco.
-        partes = [x.strip() for x in linea.split("|")]
-
+        # El nombre del barco normalmente está en la tercera celda
         barco = None
 
-        for parte in partes:
+        for dato in datos:
 
-            p = parte.strip()
+            limpio = dato.strip()
 
             if re.search(
                 r"\b(M/S|M/V)\b",
-                p,
+                limpio,
                 re.I
             ):
                 barco = re.sub(
                     r"^(M/S|M/V)\s+",
                     "",
-                    p,
+                    limpio,
                     flags=re.I
                 ).strip()
                 break
 
-            # Algunos barcos aparecen sin M/S o M/V
+        # Barcos que pueden aparecer sin M/S o M/V
+        if not barco:
+
             conocidos = [
                 "MARINER OF THE SEAS",
                 "RADIANCE OF THE SEAS",
                 "ENCHANTMENT OF THE SEAS",
                 "CELEBRITY BEYOND",
-                "ICON OF THE SEAS"
+                "ICON OF THE SEAS",
+                "STAR OF THE SEAS"
             ]
 
-            if p.upper() in conocidos:
-                barco = p
-                break
+            for dato in datos:
+
+                if dato.upper().strip() in conocidos:
+                    barco = dato.strip()
+                    break
 
         if not barco:
             continue
 
+        # Buscar horarios
+        horarios = re.findall(
+            r"\b\d{1,2}:\d{2}\b",
+            texto
+        )
+
+        if len(horarios) < 2:
+            continue
+
+        # Convertir fecha
         dia = datetime.strptime(
-            fecha.group(0),
+            fecha_match.group(0),
             "%d/%m/%Y"
         ).strftime("%Y-%m-%d")
 
@@ -147,8 +158,23 @@ def obtener_pasajeros():
 
     ahora = datetime.now()
 
-    mes = ahora.strftime("%b").lower()
-    año = ahora.strftime("%Y")
+    meses = {
+        1: "jan",
+        2: "feb",
+        3: "mar",
+        4: "apr",
+        5: "may",
+        6: "jun",
+        7: "jul",
+        8: "aug",
+        9: "sep",
+        10: "oct",
+        11: "nov",
+        12: "dec"
+    }
+
+    mes = meses[ahora.month]
+    año = ahora.year
 
     url = (
         "https://www.cruisetimetables.com/"
@@ -164,63 +190,46 @@ def obtener_pasajeros():
 
     soup = BeautifulSoup(r.text, "html.parser")
 
-    texto = soup.get_text("\n", strip=True)
-    lineas = [x.strip() for x in texto.splitlines() if x.strip()]
+    lineas = [
+        x.strip()
+        for x in soup.get_text("\n", strip=True).splitlines()
+        if x.strip()
+    ]
 
     pasajeros = {}
 
-    barcos = [
-        "Carnival Paradise",
-        "Harmony Of The Seas",
-        "Mariner Of The Seas",
-        "Carnival Breeze",
-        "Icon Of The Seas",
-        "MSC Seashore",
-        "Carnival Jubilee",
-        "Celebrity Beyond",
-        "Enchantment Of The Seas",
-        "Radiance Of The Seas",
-        "Regal Princess",
-        "Symphony Of The Seas",
-        "Carnival Celebration",
-        "Carnival Liberty",
-        "MSC Seascape",
-        "Carnival Valor",
-        "Carnival Dream",
-        "MSC World America",
-        "Norwegian Prima",
-        "Margaritaville At Sea Islander",
-        "Mardi Gras",
-        "Celebrity Reflection",
-        "Star Of The Seas",
-        "Disney Treasure",
-        "Disney Destiny"
-    ]
-
     for i, linea in enumerate(lineas):
+
+        # Buscar un número de pasajeros inmediatamente después
+        # de los datos del barco
 
         barco = None
 
-        for nombre in barcos:
-            if linea.lower() == nombre.lower():
-                barco = nombre
-                break
+        # El nombre del barco puede ser el texto de un enlace
+        if linea:
+
+            posible = linea.strip()
+
+            if (
+                "SEAS" in posible.upper()
+                or "CARNIVAL" in posible.upper()
+                or "MSC " in posible.upper()
+                or "CELEBRITY" in posible.upper()
+                or "DISNEY" in posible.upper()
+                or "NORWEGIAN" in posible.upper()
+                or "MARGARITAVILLE" in posible.upper()
+                or "PRINCESS" in posible.upper()
+                or "MARDI GRAS" in posible.upper()
+            ):
+                barco = posible
 
         if not barco:
             continue
 
-        # CruiseTimetables coloca:
-        # barco
-        # a 0800 d 1600
-        # pasajeros
+        nombre = normalizar_barco(barco)
 
-        for siguiente in lineas[i + 1:i + 4]:
-
-            if re.search(
-                r"\b\d{4}\b",
-                siguiente
-            ):
-                continue
+        # Buscar en las siguientes líneas
+        for siguiente in lineas[i + 1:i + 7]:
 
             numero = re.fullmatch(
                 r"\d{3,5}",
@@ -233,10 +242,7 @@ def obtener_pasajeros():
 
                 if 500 <= valor <= 20000:
 
-                    pasajeros[
-                        normalizar_barco(barco)
-                    ] = valor
-
+                    pasajeros[nombre] = valor
                     break
 
     return pasajeros
