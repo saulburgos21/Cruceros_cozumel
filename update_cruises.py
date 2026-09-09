@@ -138,6 +138,7 @@ def obtener_apiqroo():
 
         if dia not in cruceros:
             cruceros[dia] = []
+
 # Evitar duplicados del mismo barco en la misma terminal
 existe = any(
     x["terminal"] == registro["terminal"]
@@ -145,9 +146,8 @@ existe = any(
     for x in cruceros[dia]
 )
 
-        if not existe:
-            cruceros[dia].append(registro)
-
+if not existe:
+    cruceros[dia].append(registro)
     return cruceros
 
 
