@@ -418,194 +418,27 @@ Programación: APIQROO · Pasajeros estimados: CruiseTimetables
    DATOS DE CRUCEROS
    ===================================================== */
 
-const cruiseData = {
+let cruiseData = {};
 
+async function loadCruiseData() {
+  try {
+    const response = await fetch("cruise-data.json?ts=" + Date.now());
 
-"2026-09-07": [
+    if (!response.ok) {
+      throw new Error("No se pudo cargar cruise-data.json");
+    }
 
-{
-terminal: "Punta Langosta",
-ship: "Disney Treasure",
-arrival: "06:30",
-departure: "17:00",
-passengers: 2500
-},
+    const data = await response.json();
 
-{
-terminal: "Puerta Maya",
-ship: "Carnival Valor",
-arrival: "06:30",
-departure: "16:00",
-passengers: 2968
+    cruiseData = data.cruises || {};
+
+    console.log("Datos de cruceros actualizados:", data.lastUpdated);
+
+    updateDashboard();
+  } catch (error) {
+    console.error("Error cargando datos de cruceros:", error);
+  }
 }
-
-],
-
-
-"2026-09-08": [
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Paradise",
-arrival: "05:30",
-departure: "15:00",
-passengers: 2124
-},
-
-{
-terminal: "SSA México",
-ship: "Harmony Of The Seas",
-arrival: "05:45",
-departure: "17:00",
-passengers: 5479
-},
-
-{
-terminal: "Punta Langosta",
-ship: "Mariner Of The Seas",
-arrival: "06:15",
-departure: "16:30",
-passengers: 3114
-}
-
-],
-
-
-"2026-09-09": [
-
-{
-terminal: "SSA México",
-ship: "Icon Of The Seas",
-arrival: "07:00",
-departure: "18:00",
-passengers: 5610
-},
-
-{
-terminal: "Punta Langosta",
-ship: "MSC Seashore",
-arrival: "07:30",
-departure: "19:00",
-passengers: 4540
-},
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Breeze",
-arrival: "08:30",
-departure: "17:00",
-passengers: 3646
-}
-
-],
-
-
-"2026-09-10": [
-
-{
-terminal: "Punta Langosta",
-ship: "Radiance Of The Seas",
-arrival: "06:15",
-departure: "17:00",
-passengers: 2100
-},
-
-{
-terminal: "SSA México",
-ship: "Symphony Of The Seas",
-arrival: "06:15",
-departure: "16:45",
-passengers: 5518
-},
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Jubilee",
-arrival: "06:30",
-departure: "16:00",
-passengers: 5374
-},
-
-{
-terminal: "Punta Langosta",
-ship: "Enchantment Of The Seas",
-arrival: "07:15",
-departure: "18:00",
-passengers: 1950
-},
-
-{
-terminal: "Puerta Maya",
-ship: "Regal Princess",
-arrival: "07:30",
-departure: "18:00",
-passengers: 3560
-},
-
-{
-terminal: "SSA México",
-ship: "Celebrity Beyond",
-arrival: "10:00",
-departure: "19:30",
-passengers: 3260
-}
-
-],
-
-
-"2026-09-11": [
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Liberty",
-arrival: "06:30",
-departure: "16:00",
-passengers: 2974
-},
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Celebration",
-arrival: "06:30",
-departure: "16:00",
-passengers: 5374
-},
-
-{
-terminal: "Punta Langosta",
-ship: "MSC Seascape",
-arrival: "07:30",
-departure: "16:00",
-passengers: 5878
-}
-
-],
-
-
-"2026-09-12": [
-
-{
-terminal: "Punta Langosta",
-ship: "Mariner Of The Seas",
-arrival: "06:15",
-departure: "16:30",
-passengers: 3114
-},
-
-{
-terminal: "Puerta Maya",
-ship: "Carnival Valor",
-arrival: "06:30",
-departure: "16:00",
-passengers: 2968
-}
-
-],
-
-
-"2026-09-13": []
-
-};
 
 
 /* =====================================================
@@ -1329,7 +1162,7 @@ location.reload();
 60000
 );
 
-
+loadCruiseData();
 </script>
 
 </body>
