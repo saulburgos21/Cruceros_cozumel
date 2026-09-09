@@ -268,6 +268,7 @@ footer {
   .week-title {
     font-size: 18px;
   }
+
 }
 
 </style>
@@ -288,9 +289,9 @@ Cozumel Top Excursions
 </header>
 
 
-<div class="week-title">
+<div class="week-title" id="weekTitle">
 
-📅 Semana del 7 al 13 de septiembre de 2026
+📅 Semana
 
 </div>
 
@@ -390,7 +391,6 @@ Cozumel Top Excursions
 </thead>
 
 <tbody id="cruiseTable">
-
 </tbody>
 
 </table>
@@ -413,6 +413,10 @@ Programación: APIQROO · Pasajeros estimados: CruiseTimetables
 
 <script>
 
+
+/* =====================================================
+   DATOS DE CRUCEROS
+   ===================================================== */
 
 const cruiseData = {
 
@@ -604,52 +608,187 @@ passengers: 2968
 };
 
 
-const days = [
+/* =====================================================
+   FUNCIONES DE FECHA
+   ===================================================== */
 
-{
-date: "2026-09-07",
-name: "LUN",
-number: "7"
-},
 
-{
-date: "2026-09-08",
-name: "MAR",
-number: "8"
-},
+/*
+Obtiene la fecha local del dispositivo
+en formato YYYY-MM-DD.
+*/
 
-{
-date: "2026-09-09",
-name: "MIÉ",
-number: "9"
-},
+function formatDateLocal(date) {
 
-{
-date: "2026-09-10",
-name: "JUE",
-number: "10"
-},
+const year =
+date.getFullYear();
 
-{
-date: "2026-09-11",
-name: "VIE",
-number: "11"
-},
+const month =
+String(date.getMonth() + 1).padStart(2, "0");
 
-{
-date: "2026-09-12",
-name: "SÁB",
-number: "12"
-},
+const day =
+String(date.getDate()).padStart(2, "0");
 
-{
-date: "2026-09-13",
-name: "DOM",
-number: "13"
+return `${year}-${month}-${day}`;
+
 }
 
+
+/*
+Obtiene el lunes de la semana actual.
+*/
+
+function getMonday(date) {
+
+const result =
+new Date(date);
+
+const day =
+result.getDay();
+
+/*
+JavaScript:
+0 = domingo
+1 = lunes
+2 = martes
+...
+6 = sábado
+*/
+
+const difference =
+day === 0 ? -6 : 1 - day;
+
+result.setDate(
+result.getDate() + difference
+);
+
+result.setHours(0,0,0,0);
+
+return result;
+
+}
+
+
+/*
+Nombres de los días.
+*/
+
+const dayNames = [
+"DOM",
+"LUN",
+"MAR",
+"MIÉ",
+"JUE",
+"VIE",
+"SÁB"
 ];
 
+
+/*
+Nombres de los meses.
+*/
+
+const monthNames = [
+"enero",
+"febrero",
+"marzo",
+"abril",
+"mayo",
+"junio",
+"julio",
+"agosto",
+"septiembre",
+"octubre",
+"noviembre",
+"diciembre"
+];
+
+
+/* =====================================================
+   GENERAR SEMANA AUTOMÁTICAMENTE
+   ===================================================== */
+
+const today =
+new Date();
+
+
+const monday =
+getMonday(today);
+
+
+const days = [];
+
+
+for (
+let i = 0;
+i < 7;
+i++
+) {
+
+const date =
+new Date(monday);
+
+date.setDate(
+monday.getDate() + i
+);
+
+
+days.push({
+
+date: formatDateLocal(date),
+
+name: dayNames[date.getDay()],
+
+number: date.getDate(),
+
+month: date.getMonth(),
+
+year: date.getFullYear()
+
+});
+
+}
+
+
+/* =====================================================
+   TÍTULO AUTOMÁTICO DE LA SEMANA
+   ===================================================== */
+
+const sunday =
+new Date(monday);
+
+sunday.setDate(
+monday.getDate() + 6
+);
+
+
+const weekTitle =
+document.getElementById(
+"weekTitle"
+);
+
+
+if (
+monday.getMonth() ===
+sunday.getMonth()
+) {
+
+weekTitle.textContent =
+`📅 Semana del ${monday.getDate()} al ${sunday.getDate()} de ${monthNames[monday.getMonth()]} de ${monday.getFullYear()}`;
+
+}
+
+else {
+
+weekTitle.textContent =
+`📅 Semana del ${monday.getDate()} de ${monthNames[monday.getMonth()]} al ${sunday.getDate()} de ${monthNames[sunday.getMonth()]} de ${sunday.getFullYear()}`;
+
+}
+
+
+/* =====================================================
+   GENERAR BOTONES DE LOS 7 DÍAS
+   ===================================================== */
 
 const daysContainer =
 document.getElementById("days");
@@ -657,12 +796,15 @@ document.getElementById("days");
 
 days.forEach(day => {
 
+
 const data =
 cruiseData[day.date] || [];
 
+
 const total =
 data.reduce(
-(sum, ship) => sum + ship.passengers,
+(sum, ship) =>
+sum + ship.passengers,
 0
 );
 
@@ -670,7 +812,9 @@ data.reduce(
 const button =
 document.createElement("div");
 
-button.className = "day";
+
+button.className =
+"day";
 
 
 button.innerHTML = `
@@ -684,7 +828,9 @@ ${day.number}
 </div>
 
 <div class="day-passengers">
-${total.toLocaleString("es-MX")} pasajeros
+${total > 0
+? total.toLocaleString("es-MX") + " pasajeros"
+: "Sin arribos"}
 </div>
 
 `;
@@ -692,13 +838,16 @@ ${total.toLocaleString("es-MX")} pasajeros
 
 button.onclick = () => {
 
+
 document
 .querySelectorAll(".day")
 .forEach(item =>
 item.classList.remove("selected")
 );
 
+
 button.classList.add("selected");
+
 
 showDay(day.date);
 
@@ -707,13 +856,20 @@ showDay(day.date);
 
 daysContainer.appendChild(button);
 
+
 });
 
 
+/* =====================================================
+   MOSTRAR DÍA
+   ===================================================== */
+
 function showDay(date) {
+
 
 const data =
 cruiseData[date] || [];
+
 
 const dayInfo =
 days.find(day =>
@@ -731,7 +887,8 @@ sum + ship.passengers,
 
 document.getElementById(
 "shipCount"
-).textContent = data.length;
+).textContent =
+data.length;
 
 
 document.getElementById(
@@ -740,24 +897,37 @@ document.getElementById(
 totalPassengers.toLocaleString("es-MX");
 
 
+if (dayInfo) {
+
 document.getElementById(
 "selectedDate"
 ).textContent =
 `${dayInfo.name} ${dayInfo.number}`;
 
+}
 
-updateOpportunity(totalPassengers);
 
-updateTerminalRanking(data);
+updateOpportunity(
+totalPassengers
+);
+
+
+updateTerminalRanking(
+data
+);
 
 
 const table =
-document.getElementById("cruiseTable");
+document.getElementById(
+"cruiseTable"
+);
+
 
 table.innerHTML = "";
 
 
 if (data.length === 0) {
+
 
 table.innerHTML = `
 
@@ -774,6 +944,7 @@ class="no-cruises">
 
 `;
 
+
 return;
 
 }
@@ -781,28 +952,43 @@ return;
 
 data.forEach(ship => {
 
+
 let priority = "";
+
 let priorityClass = "";
 
 
-if (ship.passengers >= 5000) {
+if (
+ship.passengers >= 5000
+) {
 
-priority = "⭐⭐⭐ Alta";
-priorityClass = "high";
+priority =
+"⭐⭐⭐ Alta";
+
+priorityClass =
+"high";
 
 }
 
-else if (ship.passengers >= 3000) {
+else if (
+ship.passengers >= 3000
+) {
 
-priority = "⭐⭐ Media";
-priorityClass = "medium";
+priority =
+"⭐⭐ Media";
+
+priorityClass =
+"medium";
 
 }
 
 else {
 
-priority = "⭐ Normal";
-priorityClass = "low";
+priority =
+"⭐ Normal";
+
+priorityClass =
+"low";
 
 }
 
@@ -842,10 +1028,15 @@ ${priority}
 
 table.appendChild(row);
 
+
 });
 
 }
 
+
+/* =====================================================
+   RANKING DE TERMINALES
+   ===================================================== */
 
 function updateTerminalRanking(data) {
 
@@ -860,6 +1051,7 @@ ranking.innerHTML = "";
 
 
 if (data.length === 0) {
+
 
 ranking.innerHTML = `
 
@@ -881,6 +1073,7 @@ No hay programación
 
 `;
 
+
 return;
 
 }
@@ -891,21 +1084,26 @@ const totals = {};
 
 data.forEach(ship => {
 
+
 if (!totals[ship.terminal]) {
 
 totals[ship.terminal] = 0;
 
 }
 
+
 totals[ship.terminal] +=
 ship.passengers;
+
 
 });
 
 
 const sorted =
 Object.entries(totals)
-.sort((a,b) => b[1] - a[1]);
+.sort(
+(a,b) => b[1] - a[1]
+);
 
 
 const medals = [
@@ -915,17 +1113,23 @@ const medals = [
 ];
 
 
-sorted.forEach((item,index) => {
+sorted.forEach(
+(item,index) => {
+
 
 const terminal =
 item[0];
+
 
 const passengers =
 item[1];
 
 
 const card =
-document.createElement("div");
+document.createElement(
+"div"
+);
+
 
 card.className =
 "terminal-card";
@@ -960,12 +1164,19 @@ pasajeros estimados
 `;
 
 
-ranking.appendChild(card);
+ranking.appendChild(
+card
+);
+
 
 });
 
 }
 
+
+/* =====================================================
+   OPORTUNIDAD DEL DÍA
+   ===================================================== */
 
 function updateOpportunity(total) {
 
@@ -1014,14 +1225,51 @@ box.innerHTML =
 }
 
 
-/* Abrir inicialmente el miércoles 9 */
+/* =====================================================
+   SELECCIONAR EL DÍA INICIAL
+   ===================================================== */
 
-const initialDay =
-"2026-09-09";
+
+/*
+Primero intentamos seleccionar
+el día de HOY.
+*/
+
+let initialDay =
+formatDateLocal(today);
+
+
+/*
+Si hoy no pertenece a los 7 días
+generados, seleccionamos el lunes.
+*/
+
+if (
+!days.some(day =>
+day.date === initialDay
+)
+) {
+
+initialDay =
+days[0].date;
+
+}
+
+
+/*
+Buscamos el botón correspondiente.
+*/
+
+const initialIndex =
+days.findIndex(day =>
+day.date === initialDay
+);
 
 
 const initialButton =
-[...document.querySelectorAll(".day")][2];
+document.querySelectorAll(
+".day"
+)[initialIndex];
 
 
 if (initialButton) {
@@ -1033,7 +1281,54 @@ initialButton.classList.add(
 }
 
 
-showDay(initialDay);
+/*
+Cargamos la información inicial.
+*/
+
+showDay(
+initialDay
+);
+
+
+/* =====================================================
+   ACTUALIZACIÓN AUTOMÁTICA
+   ===================================================== */
+
+
+/*
+Si la página permanece abierta durante
+la medianoche, se recarga automáticamente
+para actualizar la semana.
+*/
+
+setInterval(
+() => {
+
+const currentDate =
+formatDateLocal(
+new Date()
+);
+
+const currentWeekMonday =
+formatDateLocal(
+getMonday(
+new Date()
+)
+);
+
+if (
+currentWeekMonday !==
+formatDateLocal(monday)
+) {
+
+location.reload();
+
+}
+
+},
+60000
+);
+
 
 </script>
 
