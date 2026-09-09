@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-09 05:21",
+  "lastUpdated": "2026-09-09 07:27",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -21,17 +21,17 @@
     "2026-09-02": [
       {
         "terminal": "TERMINAL SSA MEXICO",
-        "ship": "FREEDOM OF THE SEAS",
-        "arrival": "06:00",
-        "departure": "17:00",
-        "passengers": 0
-      },
-      {
-        "terminal": "TERMINAL SSA MEXICO",
         "ship": "STAR OF THE SEAS",
         "arrival": "06:00",
         "departure": "17:00",
         "passengers": 5610
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "FREEDOM OF THE SEAS",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -49,13 +49,6 @@
       }
     ],
     "2026-09-03": [
-      {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "CARNIVAL DREAM",
-        "arrival": "06:15",
-        "departure": "16:30",
-        "passengers": 3646
-      },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MARINER OF THE SEAS",
@@ -79,13 +72,6 @@
       }
     ],
     "2026-09-04": [
-      {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "CARNIVAL PARADISE",
-        "arrival": "05:30",
-        "departure": "15:00",
-        "passengers": 2124
-      },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CARNIVAL PARADISE",
@@ -117,13 +103,6 @@
     ],
     "2026-09-05": [
       {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "CARNIVAL BREEZE",
-        "arrival": "06:15",
-        "departure": "17:00",
-        "passengers": 3646
-      },
-      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "RADIANCE OF THE SEAS",
         "arrival": "06:15",
@@ -140,13 +119,6 @@
     ],
     "2026-09-07": [
       {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "DISNEY TREASURE",
-        "arrival": "06:30",
-        "departure": "17:00",
-        "passengers": 2500
-      },
-      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "DISNEY TREASURE",
         "arrival": "06:30",
@@ -162,13 +134,6 @@
       }
     ],
     "2026-09-08": [
-      {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "CARNIVAL PARADISE",
-        "arrival": "05:30",
-        "departure": "15:00",
-        "passengers": 2124
-      },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CARNIVAL PARADISE",
@@ -194,13 +159,6 @@
     "2026-09-09": [
       {
         "terminal": "TERMINAL SSA MEXICO",
-        "ship": "MSC SEASHORE",
-        "arrival": "07:00",
-        "departure": "18:00",
-        "passengers": 4540
-      },
-      {
-        "terminal": "TERMINAL SSA MEXICO",
         "ship": "ICON OF THE SEAS",
         "arrival": "07:00",
         "departure": "18:00",
@@ -223,18 +181,18 @@
     ],
     "2026-09-10": [
       {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "SYMPHONY OF THE SEAS",
-        "arrival": "06:15",
-        "departure": "17:00",
-        "passengers": 5518
-      },
-      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "RADIANCE OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
         "passengers": 2100
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "SYMPHONY OF THE SEAS",
+        "arrival": "06:15",
+        "departure": "16:45",
+        "passengers": 5518
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -290,18 +248,18 @@
     ],
     "2026-09-12": [
       {
-        "terminal": "TERMINAL PUERTA MAYA",
-        "ship": "CARNIVAL VALOR",
-        "arrival": "06:15",
-        "departure": "16:30",
-        "passengers": 2968
-      },
-      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
         "passengers": 3114
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL VALOR",
+        "arrival": "06:30",
+        "departure": "16:00",
+        "passengers": 2968
       }
     ]
   }
