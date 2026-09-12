@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-11 13:12",
+  "lastUpdated": "2026-09-12 13:10",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -236,7 +236,7 @@
         "ship": "CARNIVAL CELEBRATION",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 5374
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
