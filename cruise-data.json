@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-18 13:11",
+  "lastUpdated": "2026-09-19 13:12",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -98,7 +98,7 @@
         "ship": "NORWEGIAN PRIMA",
         "arrival": "07:45",
         "departure": "17:30",
-        "passengers": 3099
+        "passengers": 0
       }
     ],
     "2026-09-05": [
@@ -353,7 +353,7 @@
         "ship": "NORWEGIAN PRIMA",
         "arrival": "07:45",
         "departure": "17:30",
-        "passengers": 3099
+        "passengers": 0
       }
     ],
     "2026-09-19": [
