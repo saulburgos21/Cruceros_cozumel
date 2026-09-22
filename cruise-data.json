@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-21 13:11",
+  "lastUpdated": "2026-09-22 13:12",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -123,7 +123,7 @@
         "ship": "DISNEY TREASURE",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -302,7 +302,7 @@
         "ship": "MARGARITAVILLE AT SEA ISLANDER",
         "arrival": "06:00",
         "departure": "15:00",
-        "passengers": 2680
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
@@ -378,14 +378,14 @@
         "ship": "MARGARITAVILLE AT SEA ISLANDER",
         "arrival": "06:00",
         "departure": "15:00",
-        "passengers": 2680
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "DISNEY TREASURE",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
