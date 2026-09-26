@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25 13:13",
+  "lastUpdated": "2026-09-26 13:10",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -24,7 +24,7 @@
         "ship": "STAR OF THE SEAS",
         "arrival": "06:00",
         "departure": "17:00",
-        "passengers": 5610
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -91,7 +91,7 @@
         "ship": "MSC SEASCAPE",
         "arrival": "07:30",
         "departure": "16:00",
-        "passengers": 5878
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
@@ -229,7 +229,7 @@
         "ship": "CARNIVAL LIBERTY",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 2974
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -243,7 +243,7 @@
         "ship": "MSC SEASCAPE",
         "arrival": "07:30",
         "departure": "16:00",
-        "passengers": 5878
+        "passengers": 0
       }
     ],
     "2026-09-12": [
@@ -346,7 +346,7 @@
         "ship": "MSC SEASCAPE",
         "arrival": "07:30",
         "departure": "16:00",
-        "passengers": 5878
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
@@ -491,21 +491,21 @@
         "ship": "STAR OF THE SEAS",
         "arrival": "06:00",
         "departure": "17:00",
-        "passengers": 5610
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CARNIVAL LIBERTY",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 2974
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MSC SEASCAPE",
         "arrival": "07:30",
         "departure": "16:00",
-        "passengers": 5878
+        "passengers": 0
       }
     ],
     "2026-09-26": [
@@ -629,7 +629,7 @@
         "ship": "MSC SEASCAPE",
         "arrival": "07:30",
         "departure": "16:00",
-        "passengers": 5878
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
