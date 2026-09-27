@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-26 13:10",
+  "lastUpdated": "2026-09-27 13:10",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-09-01": [
@@ -54,7 +54,7 @@
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -77,7 +77,7 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -139,7 +139,7 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -153,7 +153,7 @@
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       }
     ],
     "2026-09-09": [
@@ -252,7 +252,7 @@
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -309,7 +309,7 @@
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -401,14 +401,14 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -514,14 +514,14 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:15",
         "departure": "16:30",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -606,7 +606,7 @@
         "ship": "MARINER OF THE SEAS",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
