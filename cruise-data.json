@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-06 13:14",
+  "lastUpdated": "2026-10-07 13:17",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -100,7 +100,7 @@
         "ship": "CARNIVAL CELEBRATION",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 5374
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
