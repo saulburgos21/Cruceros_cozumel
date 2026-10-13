@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-12 21:35",
+  "lastUpdated": "2026-10-13 19:46",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -222,7 +222,7 @@
         "ship": "DISNEY FANTASY",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
