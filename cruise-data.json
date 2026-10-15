@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-14 17:49",
+  "lastUpdated": "2026-10-15 17:38",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -254,7 +254,7 @@
         "ship": "STAR OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
-        "passengers": 5610
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
