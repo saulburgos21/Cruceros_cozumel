@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-19 19:04",
+  "lastUpdated": "2026-10-20 17:48",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -70,7 +70,7 @@
         "ship": "DISNEY TREASURE",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -346,7 +346,7 @@
         "ship": "DISNEY TREASURE",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
