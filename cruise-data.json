@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-20 17:48",
+  "lastUpdated": "2026-10-21 17:55",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -130,7 +130,7 @@
         "ship": "CELEBRITY REFLECTION",
         "arrival": "09:00",
         "departure": "20:00",
-        "passengers": 2852
+        "passengers": 0
       }
     ],
     "2026-10-08": [
@@ -362,7 +362,7 @@
         "ship": "CELEBRITY REFLECTION",
         "arrival": "06:00",
         "departure": "17:00",
-        "passengers": 2852
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
