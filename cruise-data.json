@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-22 17:52",
+  "lastUpdated": "2026-10-23 17:44",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -174,7 +174,7 @@
         "ship": "CELEBRITY BEYOND",
         "arrival": "10:00",
         "departure": "19:30",
-        "passengers": 3260
+        "passengers": 0
       }
     ],
     "2026-10-09": [
@@ -412,13 +412,6 @@
     "2026-10-22": [
       {
         "terminal": "TERMINAL SSA MEXICO",
-        "ship": "MARGARITAVILLE AT SEA ISLANDER",
-        "arrival": "06:00",
-        "departure": "15:00",
-        "passengers": 2680
-      },
-      {
-        "terminal": "TERMINAL SSA MEXICO",
         "ship": "ENCHANTMENT OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
@@ -432,6 +425,13 @@
         "passengers": 2100
       },
       {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "MARGARITAVILLE AT SEA ISLANDER",
+        "arrival": "07:00",
+        "departure": "16:00",
+        "passengers": 2680
+      },
+      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "NORWEGIAN AQUA",
         "arrival": "09:30",
@@ -442,8 +442,8 @@
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CELEBRITY BEYOND",
         "arrival": "10:00",
-        "departure": "19:30",
-        "passengers": 3260
+        "departure": "19:00",
+        "passengers": 0
       }
     ],
     "2026-10-23": [
