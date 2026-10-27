@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-26 19:03",
+  "lastUpdated": "2026-10-27 18:34",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -167,7 +167,7 @@
         "ship": "REGAL PRINCESS",
         "arrival": "07:30",
         "departure": "18:00",
-        "passengers": 3560
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -298,7 +298,7 @@
         "ship": "DISNEY DESTINY",
         "arrival": "09:30",
         "departure": "18:00",
-        "passengers": 2500
+        "passengers": 0
       }
     ],
     "2026-10-16": [
@@ -512,7 +512,7 @@
         "ship": "DISNEY DESTINY",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
@@ -526,7 +526,7 @@
         "ship": "REGAL PRINCESS",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 3560
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
