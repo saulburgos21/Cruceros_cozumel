@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-29 18:49",
+  "lastUpdated": "2026-10-30 18:26",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-10-01": [
@@ -436,7 +436,7 @@
         "ship": "NORWEGIAN AQUA",
         "arrival": "09:30",
         "departure": "19:00",
-        "passengers": 3571
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -609,21 +609,21 @@
         "ship": "JEWEL OF THE SEAS",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2100
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "STAR PRINCESS",
         "arrival": "08:30",
         "departure": "19:00",
-        "passengers": 4300
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "NORWEGIAN AQUA",
         "arrival": "09:30",
         "departure": "19:00",
-        "passengers": 3571
+        "passengers": 0
       }
     ],
     "2026-10-30": [
@@ -761,7 +761,7 @@
         "ship": "JEWEL OF THE SEAS",
         "arrival": "06:00",
         "departure": "17:00",
-        "passengers": 2100
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -812,7 +812,7 @@
         "ship": "NORWEGIAN AQUA",
         "arrival": "09:30",
         "departure": "19:00",
-        "passengers": 3571
+        "passengers": 0
       }
     ],
     "2026-11-06": [
