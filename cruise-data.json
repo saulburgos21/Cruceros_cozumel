@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-03 19:58",
+  "lastUpdated": "2026-11-04 20:18",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -68,7 +68,7 @@
         "ship": "CARNIVAL CELEBRATION",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 5374
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -117,18 +117,18 @@
         "passengers": 2100
       },
       {
-        "terminal": "TERMINAL PUNTA LANGOSTA",
-        "ship": "MARINER OF THE SEAS",
-        "arrival": "06:30",
-        "departure": "17:00",
-        "passengers": 3114
-      },
-      {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CARNIVAL DREAM",
         "arrival": "06:30",
         "departure": "16:00",
         "passengers": 3646
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "MARINER OF THE SEAS",
+        "arrival": "06:45",
+        "departure": "18:00",
+        "passengers": 3114
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
