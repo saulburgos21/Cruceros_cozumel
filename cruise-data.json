@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-04 20:18",
+  "lastUpdated": "2026-11-05 20:29",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -219,6 +219,186 @@
         "arrival": "07:30",
         "departure": "16:00",
         "passengers": 2134
+      }
+    ],
+    "2026-11-09": [
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "MARINER OF THE SEAS",
+        "arrival": "06:15",
+        "departure": "16:00",
+        "passengers": 3114
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "RADIANCE OF THE SEAS",
+        "arrival": "06:15",
+        "departure": "17:00",
+        "passengers": 2100
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "NORWEGIAN VIVA",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 3100
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "DISNEY DESTINY",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 2500
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL BREEZE",
+        "arrival": "08:30",
+        "departure": "17:00",
+        "passengers": 3646
+      }
+    ],
+    "2026-11-10": [
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "INDEPENDENCE OF THE SEAS",
+        "arrival": "06:00",
+        "departure": "16:00",
+        "passengers": 3858
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "JEWEL OF THE SEAS",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 2100
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL LIBERTY",
+        "arrival": "06:30",
+        "departure": "16:00",
+        "passengers": 2974
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL JUBILEE",
+        "arrival": "06:30",
+        "departure": "16:00",
+        "passengers": 5374
+      }
+    ],
+    "2026-11-11": [
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "MEIN SCHIFF 1",
+        "arrival": "05:30",
+        "departure": "20:00",
+        "passengers": 0
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "LIBERTY OF THE SEAS",
+        "arrival": "06:00",
+        "departure": "17:00",
+        "passengers": 3798
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "ENCHANTMENT OF THE SEAS",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 1950
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL VALOR",
+        "arrival": "06:30",
+        "departure": "16:00",
+        "passengers": 2968
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "MSC WORLD AMERICA",
+        "arrival": "08:30",
+        "departure": "19:00",
+        "passengers": 5252
+      }
+    ],
+    "2026-11-12": [
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "CELEBRITY SUMMIT",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 1950
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "NORWEGIAN AQUA",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 3571
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "STAR OF THE SEAS",
+        "arrival": "07:00",
+        "departure": "18:00",
+        "passengers": 5610
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "MARGARITAVILLE AT SEA ISLANDER",
+        "arrival": "08:00",
+        "departure": "17:00",
+        "passengers": 2680
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "STAR PRINCESS",
+        "arrival": "08:00",
+        "departure": "19:00",
+        "passengers": 4300
+      }
+    ],
+    "2026-11-13": [
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "MSC SEASCAPE",
+        "arrival": "07:30",
+        "departure": "16:00",
+        "passengers": 5878
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL VENEZIA",
+        "arrival": "07:30",
+        "departure": "16:00",
+        "passengers": 4090
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "SYMPHONY OF THE SEAS",
+        "arrival": "08:15",
+        "departure": "18:45",
+        "passengers": 5518
+      }
+    ],
+    "2026-11-14": [
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "JEWEL OF THE SEAS",
+        "arrival": "06:30",
+        "departure": "17:00",
+        "passengers": 2100
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL BREEZE",
+        "arrival": "08:30",
+        "departure": "17:00",
+        "passengers": 3646
       }
     ]
   }
