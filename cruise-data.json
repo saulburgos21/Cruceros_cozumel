@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-05 20:29",
+  "lastUpdated": "2026-11-06 19:52",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -135,17 +135,10 @@
         "ship": "NORWEGIAN AQUA",
         "arrival": "09:30",
         "departure": "19:00",
-        "passengers": 3571
+        "passengers": 0
       }
     ],
     "2026-11-06": [
-      {
-        "terminal": "TERMINAL PUNTA LANGOSTA",
-        "ship": "VIKING MARS",
-        "arrival": "06:00",
-        "departure": "17:00",
-        "passengers": 0
-      },
       {
         "terminal": "TERMINAL SSA MEXICO",
         "ship": "ENCHANTMENT OF THE SEAS",
@@ -159,6 +152,13 @@
         "arrival": "06:30",
         "departure": "16:00",
         "passengers": 2974
+      },
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "VIKING MARS",
+        "arrival": "06:45",
+        "departure": "17:00",
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -224,13 +224,6 @@
     "2026-11-09": [
       {
         "terminal": "TERMINAL SSA MEXICO",
-        "ship": "MARINER OF THE SEAS",
-        "arrival": "06:15",
-        "departure": "16:00",
-        "passengers": 3114
-      },
-      {
-        "terminal": "TERMINAL SSA MEXICO",
         "ship": "RADIANCE OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
@@ -249,6 +242,13 @@
         "arrival": "06:30",
         "departure": "17:00",
         "passengers": 2500
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "MARINER OF THE SEAS",
+        "arrival": "07:15",
+        "departure": "16:30",
+        "passengers": 3114
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -338,7 +338,7 @@
         "ship": "NORWEGIAN AQUA",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 3571
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
