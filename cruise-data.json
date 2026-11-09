@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-08 18:14",
+  "lastUpdated": "2026-11-09 22:53",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -196,6 +196,13 @@
         "arrival": "06:30",
         "departure": "16:00",
         "passengers": 2968
+      },
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL MIRACLE",
+        "arrival": "07:30",
+        "departure": "16:00",
+        "passengers": 2134
       }
     ],
     "2026-11-08": [
@@ -212,13 +219,6 @@
         "arrival": "07:00",
         "departure": "18:00",
         "passengers": 0
-      },
-      {
-        "terminal": "TERMINAL PUERTA MAYA",
-        "ship": "CARNIVAL MIRACLE",
-        "arrival": "07:30",
-        "departure": "16:00",
-        "passengers": 2134
       }
     ],
     "2026-11-09": [
