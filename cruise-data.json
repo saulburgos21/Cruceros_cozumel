@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-09 22:53",
+  "lastUpdated": "2026-11-10 20:17",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -241,7 +241,7 @@
         "ship": "DISNEY DESTINY",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
