@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-10 20:17",
+  "lastUpdated": "2026-11-11 20:01",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -263,7 +263,7 @@
         "terminal": "TERMINAL SSA MEXICO",
         "ship": "INDEPENDENCE OF THE SEAS",
         "arrival": "06:00",
-        "departure": "16:00",
+        "departure": "15:30",
         "passengers": 3858
       },
       {
@@ -357,7 +357,7 @@
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "STAR PRINCESS",
-        "arrival": "08:00",
+        "arrival": "08:30",
         "departure": "19:00",
         "passengers": 4300
       }
