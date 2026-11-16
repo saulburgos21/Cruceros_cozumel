@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-15 19:16",
+  "lastUpdated": "2026-11-16 22:45",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -404,13 +404,6 @@
     "2026-11-16": [
       {
         "terminal": "TERMINAL SSA MEXICO",
-        "ship": "MARINER OF THE SEAS",
-        "arrival": "06:15",
-        "departure": "16:00",
-        "passengers": 3114
-      },
-      {
-        "terminal": "TERMINAL SSA MEXICO",
         "ship": "RADIANCE OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
@@ -443,9 +436,23 @@
         "arrival": "06:30",
         "departure": "16:00",
         "passengers": 3646
+      },
+      {
+        "terminal": "TERMINAL SSA MEXICO",
+        "ship": "MARINER OF THE SEAS",
+        "arrival": "07:15",
+        "departure": "16:30",
+        "passengers": 3114
       }
     ],
     "2026-11-17": [
+      {
+        "terminal": "TERMINAL PUNTA LANGOSTA",
+        "ship": "CELEBRITY SILHOUETTE",
+        "arrival": "05:15",
+        "departure": "16:00",
+        "passengers": 2852
+      },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "CARNIVAL PARADISE",
@@ -466,13 +473,6 @@
         "arrival": "06:15",
         "departure": "17:00",
         "passengers": 3114
-      },
-      {
-        "terminal": "TERMINAL PUNTA LANGOSTA",
-        "ship": "CELEBRITY SILHOUETTE",
-        "arrival": "06:30",
-        "departure": "17:00",
-        "passengers": 2852
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
