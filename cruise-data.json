@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-16 22:45",
+  "lastUpdated": "2026-11-17 21:31",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -667,18 +667,20 @@
     ],
     "2026-11-22": [
       {
-        "terminal": "TERMINAL SSA MEXICO",
-        "ship": "MARGARITAVILLE AT SEA ISLANDER",
-        "arrival": "07:00",
-        "departure": "16:00",
-        "passengers": 2680
-      },
-      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "DISNEY MAGIC",
         "arrival": "10:30",
         "departure": "18:15",
         "passengers": 1754
+      }
+    ],
+    "2026-11-23": [
+      {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "MARGARITAVILLE AT SEA ISLANDER",
+        "arrival": "07:00",
+        "departure": "16:00",
+        "passengers": 2680
       }
     ]
   }
