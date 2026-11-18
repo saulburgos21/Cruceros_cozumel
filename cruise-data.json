@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-17 21:31",
+  "lastUpdated": "2026-11-18 21:07",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -8,7 +8,7 @@
         "ship": "ADVENTURE OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
-        "passengers": 3114
+        "passengers": 0
       }
     ],
     "2026-11-02": [
@@ -451,7 +451,7 @@
         "ship": "CELEBRITY SILHOUETTE",
         "arrival": "05:15",
         "departure": "16:00",
-        "passengers": 2852
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -472,14 +472,14 @@
         "ship": "ADVENTURE OF THE SEAS",
         "arrival": "06:15",
         "departure": "17:00",
-        "passengers": 3114
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
         "ship": "SUN PRINCESS",
         "arrival": "07:15",
         "departure": "18:00",
-        "passengers": 4300
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
@@ -498,6 +498,13 @@
         "passengers": 2100
       },
       {
+        "terminal": "TERMINAL PUERTA MAYA",
+        "ship": "CARNIVAL BREEZE",
+        "arrival": "06:15",
+        "departure": "17:45",
+        "passengers": 3646
+      },
+      {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "MSC GRANDIOSA",
         "arrival": "06:30",
@@ -510,13 +517,6 @@
         "arrival": "06:30",
         "departure": "16:00",
         "passengers": 5200
-      },
-      {
-        "terminal": "TERMINAL PUERTA MAYA",
-        "ship": "NORWEGIAN LUNA",
-        "arrival": "06:30",
-        "departure": "17:00",
-        "passengers": 3570
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -534,10 +534,10 @@
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
-        "ship": "CARNIVAL BREEZE",
-        "arrival": "08:30",
-        "departure": "17:00",
-        "passengers": 3646
+        "ship": "NORWEGIAN LUNA",
+        "arrival": "10:00",
+        "departure": "19:00",
+        "passengers": 3570
       }
     ],
     "2026-11-19": [
