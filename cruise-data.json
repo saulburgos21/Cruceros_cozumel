@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-21 19:57",
+  "lastUpdated": "2026-11-22 20:11",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -47,7 +47,7 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -181,7 +181,7 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -458,7 +458,7 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "05:30",
         "departure": "15:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -641,14 +641,14 @@
         "ship": "CARNIVAL PARADISE",
         "arrival": "06:45",
         "departure": "17:00",
-        "passengers": 2124
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "NORWEGIAN JEWEL",
         "arrival": "07:30",
         "departure": "17:00",
-        "passengers": 2368
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
