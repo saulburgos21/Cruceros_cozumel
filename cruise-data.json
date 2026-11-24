@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-24 00:37",
+  "lastUpdated": "2026-11-24 22:55",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -530,7 +530,7 @@
         "ship": "NORWEGIAN GEM",
         "arrival": "07:30",
         "departure": "17:30",
-        "passengers": 2382
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -687,14 +687,14 @@
         "ship": "DISNEY FANTASY",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 2500
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
         "ship": "NORWEGIAN GEM",
         "arrival": "06:30",
         "departure": "16:30",
-        "passengers": 2382
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
