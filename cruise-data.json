@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-24 22:55",
+  "lastUpdated": "2026-11-25 22:10",
   "source": "APIQROO + CruiseTimetables",
   "cruises": {
     "2026-11-01": [
@@ -61,7 +61,7 @@
         "ship": "CELEBRITY SUMMIT",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 1950
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -285,7 +285,7 @@
         "ship": "CARNIVAL JUBILEE",
         "arrival": "06:30",
         "departure": "16:00",
-        "passengers": 5374
+        "passengers": 0
       }
     ],
     "2026-11-11": [
@@ -331,7 +331,7 @@
         "ship": "CELEBRITY SUMMIT",
         "arrival": "06:30",
         "departure": "17:00",
-        "passengers": 1950
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
@@ -581,7 +581,7 @@
         "ship": "CELEBRITY XCEL",
         "arrival": "10:00",
         "departure": "20:00",
-        "passengers": 3260
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -731,14 +731,14 @@
         "ship": "CELEBRITY SUMMIT",
         "arrival": "06:00",
         "departure": "19:00",
-        "passengers": 1950
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "NORWEGIAN BREAKAWAY",
         "arrival": "06:30",
         "departure": "19:00",
-        "passengers": 3903
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL PUERTA MAYA",
@@ -752,14 +752,14 @@
         "ship": "CARNIVAL JUBILEE",
         "arrival": "08:30",
         "departure": "18:00",
-        "passengers": 5374
+        "passengers": 0
       },
       {
         "terminal": "TERMINAL SSA MEXICO",
         "ship": "CELEBRITY XCEL",
         "arrival": "09:00",
         "departure": "20:00",
-        "passengers": 3260
+        "passengers": 0
       }
     ],
     "2026-11-25": [
@@ -778,7 +778,7 @@
         "passengers": 5610
       },
       {
-        "terminal": "TERMINAL PUERTA MAYA",
+        "terminal": "TERMINAL PUNTA LANGOSTA",
         "ship": "CARNIVAL VALOR",
         "arrival": "06:30",
         "departure": "16:00",
